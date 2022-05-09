@@ -1,0 +1,2 @@
+instance technique highFiBudget lowFiBudget seed dimension CC RRMSE LCC_0.1 LCC_0.2 LCC_0.3 LCC_0.4 LCC_0.5 LCC_0.6 LCC_0.7 LCC_0.8 LCC_0.9 LCC_0.95 LCC_0.975 LCC_sd LCC_coeff performance
+COCOfunction1-dim1-seed1-disth1-height0-radius0.025-freq10-amp1.5 kriging 0 0 1 1 0.5036 0.2857 0.6010 0.5940 0.5870 0.5800 0.5740 0.5690 0.5650 0.5610 0.5570 0.5540 0.5510 0.4794 0.8250 nan
