@@ -1,0 +1,47 @@
+# Copyright 2022, Nicolau Andrés-Thió
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# Define compiler and compiler flags
+CC = g++
+CFLAGS = -I /usr/include/eigen3 -std=c++11 -Wall -g
+
+main: main.o aux_solvers.o functions.o sample_generator.o aux_functions.o kriging.o input_output.o
+	$(CC) $(CFLAGS) -o main main.o aux_solvers.o functions.o sample_generator.o aux_functions.o kriging.o input_output.o
+
+main.o: main.cpp input_output.hpp
+	$(CC) $(CFLAGS) -c main.cpp 
+
+input_output.o: input_output.cpp aux_solvers.hpp functions.hpp kriging.hpp libraries.hpp input_output.hpp
+	$(CC) $(CFLAGS) -c input_output.cpp
+
+kriging.o: kriging.cpp kriging.hpp functions.hpp sample_generator.hpp libraries.hpp
+	$(CC) $(CFLAGS) -c kriging.cpp
+
+aux_solvers.o: aux_solvers.cpp aux_solvers.hpp functions.hpp sample_generator.hpp libraries.hpp
+	$(CC) $(CFLAGS) -c aux_solvers.cpp
+
+sample_generator.o: sample_generator.cpp sample_generator.hpp aux_functions.hpp functions.hpp libraries.hpp
+	$(CC) $(CFLAGS) -c sample_generator.cpp
+
+functions.o: functions.cpp functions.hpp libraries.hpp
+	$(CC) $(CFLAGS) -c functions.cpp
+
+aux_functions.o: aux_functions.cpp aux_functions.hpp sample_generator.hpp functions.hpp libraries.hpp
+	$(CC) $(CFLAGS) -c aux_functions.cpp
