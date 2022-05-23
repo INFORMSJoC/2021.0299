@@ -54,11 +54,11 @@ The folder `appendix` contains a pdf document with the appendix to Bi-fidelity S
 
 In order to run both the C++ program and the R scripts, the following need to be installed:
 
-  * C++ compiler: gcc is recommended but any compiler should work. If a different compiler is chosen make sure the file `cpp_code/Makefile.local` is eddited accordingly. Installation instructions can be found [here](https://gcc.gnu.org/install/)
+  * C++ compiler: gcc is recommended but any compiler should work. If a different compiler is chosen make sure the file `cpp_code/Makefile.local` is eddited accordingly. Installation instructions can be found [here](https://gcc.gnu.org/install/).
 
-  * cmake: Installation instructions can be found [here](https://cmake.org/install/)
+  * cmake: Installation instructions can be found [here](https://cmake.org/install/).
 
-  * C++ libraries: The C++ code relies on the following libraries to work; `algorithm`, `cfloat`, `cmath`, `fstream`, `iostream`, `list`, `random`, `string`, `tuple`, `vector` and `Eigen/Dense`. Apart from the the Eigen library (more details below), all other libraries are included in the project by the `cpp_code/libraries.hpp` and should require no special setup by the user.
+  * C++ libraries: The C++ code relies on the following libraries to work; `algorithm`, `cfloat`, `cmath`, `fstream`, `iostream`, `list`, `random`, `string`, `tuple`, `vector` and `Eigen/Dense`. Apart from the the Eigen library (more details below), all other libraries are included in the project by the `cpp_code/libraries.hpp` file and should require no special setup by the user.
 
   * Eigen: Details about this library can be found [here](https://eigen.tuxfamily.org/dox/GettingStarted.html). This library needs to be downloaded, and the path to eigen inside `cpp_code/Makefile.local` needs to be modified to match that of the download location.
 
