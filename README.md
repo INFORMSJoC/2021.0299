@@ -15,7 +15,22 @@ get a more recent version or would like support**
 
 ## Cite
 
-The final version of this repository, with updated bibliographical information, is available at [GitHub](https://github.com/INFORMSJoC/2021.0299).
+To cite this material, please cite this repository, using the following DOI.
+
+[![DOI](https://zenodo.org/badge/489874231.svg)](https://zenodo.org/badge/latestdoi/489874231)
+
+Below is the BibTex for citing this version of the material.
+
+```
+@article{BFSMSTNFNTI22,
+  author =        {N. Andrés-Thió and M.A. Muñoz and K. Smith-Miles},
+  publisher =     {INFORMS Journal on Computing},
+  title =         {Bi-fidelity Surrogate Modelling: Showcasing the need for new test instances},
+  year =          {2021},
+  doi =           {10.5281/zenodo.6578060},
+  url =           {https://github.com/INFORMSJoC/2021.0299}
+}  
+```
 
 ## Description
 
