@@ -3,7 +3,7 @@
 # Bi-fidelity Surrogate Modelling: Showcasing the need for new test instances
 
 This archive is distributed in association with the [INFORMS Journal on
-Computing](https://pubsonline.informs.org/journal/ijoc) under the [given license](LICENSE).
+Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT license](LICENSE).
 
 The software and data in this repository are a snapshot of the software and data
 that were used in the research reported on in the paper 
@@ -36,9 +36,37 @@ Below is the BibTex for citing this version of the code. (UPDATE DOI)
 
 The code implements Kriging[^1][^2] and Co-Kriging[^3][^4] as surrogate models. That is, the implementation generates a sample of a bi-fidelity function (a high fidelity sample and a low fidelity sample of specified size), and trains the chosen surrogate model, without the added functionality of choosing further samples. Both of these models are described in the appendix given in the `appendix` folder. Multiple literature test instances are implemented here[^6][^7][^8][^9][^10][^11][^12][^13][^14][^15][^16], as well as a novel instance creation procedure which adds a disturbance to a high-fidelity function to create a low-fidelity function. In this implementation functions from the COCO test suite[^17] are used as the high fidelity functions. The performance of both Kriging and Co-Kriging is assessed by calculating the Relative Root Mean Squared Error (RRMSE) between the trained model and the high fidelity source.
 
+## Repository structure
+
+The repository structure is used by the provided software when reading and storing data, results and graphs. It is therefore important the folder structure is not modified. 
+
+The folder `cpp_code` contains all the C++ code which implements Kriging and Co-Kriging, the initial sampling plans, the accelerated random search algorithm for auxiliary optimisation, and the implemented instances, that is the pairs of high and low fidelity functions which are sampled to build a model.
+
+The folder `data` contains the following subfolders. The subfolder `availableFunctions` contains the text files with the names of the instances from the literature, separated by dimension. This is used by the R scripts which generate the runscripts to be run on a cluster. The subfolder `clusterResults` contains the results (i.e. model accuracy results) of running experiments, that is constructing a surrogate model (either Kriging or Co-Kriging) on a particular instance, as well as the features of the instance. The subfolder `plots` contains the created analysis plots when analysing the cluster results. In particular it contains plots of the instances based on their feature values, the statistical analysis of which model performed best, and the constructed prediction trees as well as the plots showcasing features importance. Finally, the subfolder `runScripts` contains the scripts which specify what experiments to run on the cluster.
+
+The folder `R_code` contains all the R scripts used to create the run scripts, as well as the scripts used to analyse and plot the cluster run results.
+
+The folder `scripts` contains bash scripts to be run from terminal, which either run the experiments specified in a run script sequentially, or in a cluster using Slurm.
+
+The folder `appendix` contains a pdf document with the appendix to Bi-fidelity Surrogate Modelling: Showcasing the need for new test instances. In it the mathematical formulations of Kriging and Co-Kriging are given in detail.
+
 ## Building
 
-All instructions on how to run all experiments are given in the `runAllExperiments.bash` file. As given, all experiments and analysis can be run sequentially by simply running the script, although this is not recommended. Rather, it is recommmended to use a computer cluster to run the main experiments as indicated in the bash script.
+In order to run both the C++ program and the R scripts, the following need to be installed:
+
+  * C++ compiler: gcc is recommended but any compiler should work. If a different compiler is chosen make sure the file `cpp_code/Makefile.local` is eddited accordingly. Installation instructions can be found [here](https://gcc.gnu.org/install/).
+
+  * cmake: Installation instructions can be found [here](https://cmake.org/install/).
+
+  * C++ libraries: The C++ code relies on the following libraries to work; `algorithm`, `cfloat`, `cmath`, `fstream`, `iostream`, `list`, `random`, `string`, `tuple`, `vector` and `Eigen/Dense`. Apart from the the Eigen library (more details below), all other libraries are included in the project by the `cpp_code/libraries.hpp` file and should require no special setup by the user.
+
+  * Eigen: Details about this library can be found [here](https://eigen.tuxfamily.org/dox/GettingStarted.html). This library needs to be downloaded, and the path to eigen inside `cpp_code/Makefile.local` needs to be modified to match that of the download location.
+
+  * R: The scripts call R using the terminal command `Rscript`. This needs to be installed on the local machine. On top of R, the following R libraries are required: `stringr`, `ggplot2`, `gridExtra`, `egg`, `rpart`, `tibble` and `bitops`.
+
+Simply running the file `runAllExperiments.bash` from the terminal should build the executable. If you desire to build the C++ executable before running the script however, simply go to the `cpp_folder` and run the command `make local`.
+
+As given, all experiments and analysis can be run sequentially by simply running the script, although this is not recommended. Rather, it is recommmended to use a computer cluster to run the main experiments as indicated in the bash script.
 
 ## Results
 
