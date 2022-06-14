@@ -7,7 +7,7 @@ Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT license](
 
 The software and data in this repository are a snapshot of the software and data
 that were used in the research reported on in the paper 
-[Bi-fidelity Surrogate Modelling: Showcasing the need for new test instances](https://doi.org/10.1287/ijoc.2019.0934) (UPDATE LINK) by Andrés-Thió N, Muñoz MA, and Smith-Miles K. 
+[Bi-fidelity Surrogate Modelling: Showcasing the need for new test instances](https://doi.org/10.1287/ijoc.2022.1217) by Andrés-Thió N, Muñoz MA, and Smith-Miles K. 
 The snapshot is based on v1.1 of the software available in [this repository](https://github.com/nandresthio/Bifidelity-Surrogate-Modelling/releases/tag/v1.1) and the data vailable on [figshare](https://figshare.com/projects/Bifidelity-Surrogate-Modelling_data/132887). 
 
 **Important: This code is being maintained at https://github.com/nandresthio/Bifidelity-Surrogate-Modelling. Please go there if you would like to
