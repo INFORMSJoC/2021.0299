@@ -15,9 +15,7 @@ get a more recent version or would like support**
 
 ## Cite
 
-To cite this material, please cite this repository, using the following DOI.
-
-[![DOI](https://zenodo.org/badge/489874231.svg)](https://zenodo.org/badge/latestdoi/489874231)
+To cite this material, please cite this repository, using the following DOI: [https://doi.org/10.1287/ijoc.2022.1217.cd](https://doi.org/10.1287/ijoc.2022.1217.cd)
 
 Below is the BibTex for citing this version of the material.
 
@@ -27,7 +25,7 @@ Below is the BibTex for citing this version of the material.
   publisher =     {INFORMS Journal on Computing},
   title =         {Bi-fidelity Surrogate Modelling: Showcasing the need for new test instances},
   year =          {2021},
-  doi =           {10.5281/zenodo.6578060},
+  doi =           {10.1287/ijoc.2022.1217.cd},
   url =           {https://github.com/INFORMSJoC/2021.0299}
 }  
 ```
